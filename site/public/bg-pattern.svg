@@ -1,0 +1,51 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="topo-pattern" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse">
+      <!-- Topographic contour lines - elegant, low visual weight -->
+      <!-- Layer 1: Organic flowing curves -->
+      <path d="M 0 80 Q 50 70, 100 80 T 200 80 T 300 80 T 400 80"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.6"/>
+      <path d="M 0 95 Q 50 88, 100 95 T 200 95 T 300 95 T 400 95"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.5"/>
+      <path d="M 0 110 Q 50 105, 100 110 T 200 110 T 300 110 T 400 110"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.4"/>
+
+      <!-- Layer 2: Mid-section contours -->
+      <path d="M 0 180 Q 60 165, 120 180 T 240 180 T 360 180 T 400 180"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.6"/>
+      <path d="M 0 195 Q 60 183, 120 195 T 240 195 T 360 195 T 400 195"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.5"/>
+      <path d="M 0 210 Q 60 200, 120 210 T 240 210 T 360 210 T 400 210"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.4"/>
+      <path d="M 0 225 Q 60 218, 120 225 T 240 225 T 360 225 T 400 225"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/>
+
+      <!-- Layer 3: Lower contours -->
+      <path d="M 0 300 Q 70 290, 140 300 T 280 300 T 400 300"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.6"/>
+      <path d="M 0 315 Q 70 308, 140 315 T 280 315 T 400 315"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.5"/>
+      <path d="M 0 330 Q 70 325, 140 330 T 280 330 T 400 330"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.4"/>
+
+      <!-- Vertical continuation for seamless tiling -->
+      <path d="M 0 -120 Q 50 -130, 100 -120 T 200 -120 T 300 -120 T 400 -120"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.6"/>
+      <path d="M 0 -105 Q 50 -112, 100 -105 T 200 -105 T 300 -105 T 400 -105"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.5"/>
+
+      <path d="M 0 480 Q 70 490, 140 480 T 280 480 T 400 480"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.6"/>
+      <path d="M 0 495 Q 70 502, 140 495 T 280 495 T 400 495"
+            fill="none" stroke="white" stroke-width="0.5" opacity="0.5"/>
+
+      <!-- Accent lines - very subtle -->
+      <path d="M 0 40 Q 80 35, 160 40 T 320 40 T 400 40"
+            fill="none" stroke="white" stroke-width="0.3" opacity="0.3"/>
+      <path d="M 0 360 Q 80 355, 160 360 T 320 360 T 400 360"
+            fill="none" stroke="white" stroke-width="0.3" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="400" fill="url(#topo-pattern)"/>
+</svg>

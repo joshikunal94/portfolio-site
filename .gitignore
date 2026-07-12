@@ -1,0 +1,21 @@
+# dependencies
+site/node_modules/
+
+# next.js build output
+site/.next/
+site/out/
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+site/next-env.d.ts
+
+# local env files
+.env*.local
+
+# debug
+npm-debug.log*
+
+# Internal build scaffolding & research — kept locally, never published
+/steering-and-local-research/

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "AWS Certified Security – Specialty",
+    "issuer": "Amazon Web Services",
+    "file": "aws-certified-security-specialty.png",
+    "verifyUrl": "https://www.credly.com/users/kunal-joshi.a2fc8176",
+    "category": "public"
+  },
+  {
+    "name": "AWS Certified AI Practitioner",
+    "issuer": "Amazon Web Services",
+    "file": "aws-certified-ai-practitioner.png",
+    "verifyUrl": "https://www.credly.com/users/kunal-joshi.a2fc8176",
+    "category": "public"
+  },
+  {
+    "name": "Claude Certified Architect - Foundations",
+    "issuer": "Anthropic",
+    "file": "claude-certified-architect-foundations.png",
+    "verifyUrl": "https://www.credly.com/users/kunal-joshi.a2fc8176",
+    "category": "public"
+  },
+  {
+    "name": "Identity and Access Management (IAM) Subject Matter Expert",
+    "issuer": "Amazon Web Services",
+    "file": "identity-and-access-management-iam-subject-matter-expert.png",
+    "verifyUrl": "https://www.credly.com/users/kunal-joshi.a2fc8176",
+    "category": "sme"
+  },
+  {
+    "name": "Key Management Service Subject Matter Expert",
+    "issuer": "Amazon Web Services",
+    "file": "key-management-service-subject-matter-expert.png",
+    "verifyUrl": "https://www.credly.com/users/kunal-joshi.a2fc8176",
+    "category": "sme"
+  },
+  {
+    "name": "CloudHSM Subject Matter Expert",
+    "issuer": "Amazon Web Services",
+    "file": "cloud-hsm-subject-matter-expert.png",
+    "verifyUrl": "https://www.credly.com/users/kunal-joshi.a2fc8176",
+    "category": "sme"
+  }
+]

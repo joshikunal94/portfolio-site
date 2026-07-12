@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-mesh:
+    radial-gradient(circle at 18% 22%, rgba(21,145,220,0.14) 0%, transparent 50%),
+    radial-gradient(circle at 82% 78%, rgba(44,94,173,0.12) 0%, transparent 50%),
+    linear-gradient(160deg, #E4EEFA 0%, #DCE8F7 55%, #D2E0F3 100%);
+
+  --glass-surface: #FFFFFF;
+  --glass-border: rgba(15, 23, 42, 0.08);
+
+  --text-primary: #0F172A;
+  --text-body: #334155;
+  --text-muted: #5A6B80;
+
+  --accent-bright: #175FB0;
+  --signature: #2C5EAD;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #F4F7FB;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  color: var(--text-body);
+  background: var(--bg-mesh);
+  background-color: #F4F7FB;
+  background-attachment: fixed;
+  font-family: var(--font-public-sans), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layered background: SVG pattern overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/bg-pattern.svg');
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure content appears above background layers */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora__blob {
+  position: absolute;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  filter: blur(60px);
+  will-change: transform, opacity;
+}
+
+.aurora__blob--a {
+  top: -18vw;
+  left: -14vw;
+  width: 68vw;
+  background: radial-gradient(circle, rgba(21,145,220,0.55), transparent 62%);
+  animation: auroraBlobA 22s ease-in-out infinite alternate;
+}
+
+.aurora__blob--b {
+  right: -18vw;
+  bottom: -22vw;
+  width: 64vw;
+  background: radial-gradient(circle, rgba(44,94,173,0.50), transparent 62%);
+  animation: auroraBlobB 28s ease-in-out -6s infinite alternate;
+}
+
+.aurora__blob--c {
+  top: 20vh;
+  right: 4vw;
+  width: 58vw;
+  background: radial-gradient(circle, rgba(75,184,250,0.45), transparent 62%);
+  animation: auroraBlobC 18s ease-in-out -3s infinite alternate;
+}
+
+@keyframes auroraBlobA {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.88;
+  }
+  to {
+    transform: translate3d(8vw, 6vh, 0) scale(1.08);
+    opacity: 0.68;
+  }
+}
+
+@keyframes auroraBlobB {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.78;
+  }
+  to {
+    transform: translate3d(-7vw, -5vh, 0) scale(1.12);
+    opacity: 0.62;
+  }
+}
+
+@keyframes auroraBlobC {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.74;
+  }
+  to {
+    transform: translate3d(-5vw, 7vh, 0) scale(1.1);
+    opacity: 0.56;
+  }
+}
+
+@keyframes motionCue {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--accent-bright);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 2px;
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .aurora__blob {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .aurora__blob {
+    animation: none;
+    filter: blur(40px);
+  }
+}
