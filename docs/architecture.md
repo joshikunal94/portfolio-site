@@ -10,32 +10,34 @@
 ## Hosting
 
 ```
-Browser ──HTTPS──▶ CloudFront ──OAC (SigV4)──▶ S3 (private bucket)
+GitHub (main) ──webhook──▶ Cloudflare Workers Builds ──▶ Worker static assets ──▶ joshikunal.com
 ```
 
-- **S3:** private bucket, Block Public Access on, no website endpoint. Reachable only via CloudFront.
-- **CloudFront:** OAC to the bucket; bucket policy scopes `s3:GetObject` to this one distribution.
-- **CloudFront Function** (viewer-request) rewrites `/` and `/path/` to `…/index.html` (a REST/OAC
-  origin does not auto-serve index documents).
-- **Response Headers Policy** serves the security headers (CSP, HSTS, `X-Frame-Options: DENY`,
-  `Referrer-Policy`, `Permissions-Policy`, nosniff).
-- **404/403** map to `/404.html`.
+- **Cloudflare Workers (static assets):** `site/wrangler.jsonc` points `assets.directory` at `./out`.
+  There is no Worker script — Cloudflare serves the files from its edge.
+- **Routing:** `html_handling: auto-trailing-slash` serves `/path/` → `path/index.html` and redirects
+  `/path/index.html` → `/path/`. `not_found_handling: 404-page` serves `out/404.html` with a 404 status.
+- **Headers:** `out/_headers` (generated at build) is applied by Cloudflare — CSP, HSTS,
+  `X-Frame-Options: DENY`, `Referrer-Policy`, `Permissions-Policy`, nosniff.
+- **TLS:** Cloudflare-managed certificate for `joshikunal.com` + `www`, auto-renewed.
+  *Always Use HTTPS* and *Minimum TLS 1.2* are set at the zone level.
+- **DNS:** the `joshikunal.com` zone is on Cloudflare; the apex and `www` are custom domains on the
+  Worker. Registrar is separate (GoDaddy).
 
-Full resource list and deploy steps: [`../infra/README.md`](../infra/README.md).
+## Deploy flow
+
+1. Push to `main` → Workers Builds clones the repo, root dir `/site`, Node from `.node-version`.
+2. `npm run build` → `next build` + `scripts/gen-csp.mjs`.
+3. `npx wrangler deploy` uploads `out/` (only changed files) and makes it live.
+4. Any other branch gets a preview deployment with its own URL.
 
 ## Content Security Policy
 
 CSP is generated at build time by `site/scripts/gen-csp.mjs`, which SHA-256-hashes every inline
-`<script>` in the exported HTML and writes the policy to `out/_headers`. The deploy script extracts
-that exact CSP and passes it to the CloudFront Response Headers Policy, so the served CSP always
-matches the build.
-
-> **Gotcha:** any change that alters inline scripts (page/layout changes, added JSON-LD, etc.)
-> produces new hashes. Re-run the stack deploy so the CloudFront CSP is updated too — uploading new
-> HTML alone will leave a stale CSP that blocks the new scripts.
+`<script>` in the exported HTML and writes the policy to `out/_headers`. Because Cloudflare applies
+`_headers` from the same build output, the served CSP can never drift from the deployed HTML.
 
 ## Caching
 
-- Fingerprinted assets under `_next/static/`: `max-age=31536000, immutable`.
-- HTML and mutable root files (`robots.txt`, `sitemap.xml`, `llms.txt`): `max-age=60, must-revalidate`.
-- Deploys run a CloudFront invalidation (`/*`) so changes appear within a minute or two.
+Cloudflare caches static assets at the edge with content-hash based ETags; HTML is served
+`max-age=0, must-revalidate` so a new deploy is visible immediately. No manual invalidation step.

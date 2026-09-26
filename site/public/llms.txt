@@ -1,37 +1,56 @@
 # Kunal Joshi
 
-> Cloud & AI Security Architect (Mumbai, India). Security engineer and AWS cloud
-> security architect with 8 years designing, securing, and optimizing
-> enterprise-grade systems. Deep specialist in identity & access management and
-> applied cryptography (KMS / CloudHSM / PKCS#11), with hands-on delivery for
-> regulated financial customers. Increasingly focused on security for AI agent
-> systems — identity propagation, delegated authorization, and least-privilege
-> for agentic / MCP architectures.
+> Cloud & AI Security Architect (Mumbai, India). 8+ years at AWS designing,
+> securing, and delivering enterprise-grade systems end to end — from secure
+> development and IaC pipelines through production vulnerability remediation.
+> Deep specialist in identity & access management and applied cryptography
+> (KMS / CloudHSM / PKCS#11), with hands-on delivery for regulated financial
+> customers — multinational banks, brokerages, and large lending institutions.
+> Increasingly focused on security for AI agent systems — identity propagation,
+> delegated authorization, least-privilege for agentic / MCP architectures — and
+> on using AI to accelerate security remediation at scale.
 
 Site: https://joshikunal.com/ — single-page portfolio / body of work.
 
 ## Experience
 
-- Cloud Security Architect, Amazon Web Services, Mumbai (May 2024–present):
-  customer security architectures across IAM, KMS, CloudTrail, GuardDuty;
-  least privilege, MFA, SSO federation, Just-In-Time access; security for
-  regulated financial-data workloads.
+- Cloud Security Architect, AWS Professional Services, Mumbai (May 2024–present):
+  cloud security assessments for banks, brokerages, lenders, and pre-IPO firms
+  (CTO/CISO readouts, remediation roadmaps); agentic security-automation
+  pipelines (AI code review, pen-testing, threat modeling on every build);
+  securing GenAI/agentic workloads on Amazon Bedrock & AgentCore; IAM overhauls
+  (least privilege, MFA, SSO federation, JIT); cloud-native SIEM/SOC on
+  OpenSearch at ~1TB/day.
 - Cloud Engineer II – Security, Amazon Web Services, Bangalore (Dec 2017–May 2024):
   SME for AWS IAM (federation, SAML, SSO) and cryptography (KMS, CloudHSM).
 
 ## Expertise
 
+- AI & agentic systems security (agent identity, delegated authorization, A2A & MCP)
 - Identity & Access Management (IAM, federation, SAML, OAuth, SSO, JIT)
-- Applied cryptography & key management (AWS KMS, CloudHSM, PKCS#11, JCE, OpenSSL engine)
+- Applied cryptography & data protection (AWS KMS, CloudHSM, PKCS#11, JCE, OpenSSL engine)
 - AWS security architecture & governance
+- Application security & DevSecOps (SAST / DAST / SCA / SBOM, policy-as-code)
 - Cloud-native SIEM / SOC (OpenSearch)
-- Emerging: AI / agent security — on-behalf-of token exchange (RFC 8693), A2A & MCP authorization
+
+## Selected client work
+
+- IAM least-privilege orchestrator for a multinational bank — org-wide CloudTrail
+  usage analysis, automated remediation, 2PR approvals; thousands of principals
+  across hundreds of accounts.
+- KMS key-policy least-privilege orchestrator for a multinational bank —
+  GitHub-integrated approval workflows across thousands of keys.
+- Cloud-native SIEM & SOC for a stock brokerage — OpenSearch, custom Java
+  pipeline at 10M+ events/minute, ~1TB/day, near-real-time alerting.
+- Organization-wide SBOM inventory for a lending firm — Inspector exports,
+  Glue / Athena / QuickSight, search by component, version, runtime, CVE.
 
 ## Certifications
 
 - AWS Certified Security – Specialty
 - AWS Certified AI Practitioner
-- Anthropic Claude Certified Architect (L300)
+- Anthropic Claude Certified Architect
+- AWS internal SME: IAM, KMS, CloudHSM
 
 ## Projects
 

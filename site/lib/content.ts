@@ -25,17 +25,17 @@ export const profile = {
     "3F:A2:9C:D4:E7:1B:4F:8D:2A:6E:C5:B9:F1:3D:7A:E4:9B:2F:6C:D8:4E:A1:7F:3C:B5:E9:1D:8A:4F:C2:6B:9E",
   summary: [
     {
-      text: "Security engineer and AWS cloud security architect with 8 years designing, securing, and optimizing enterprise-grade systems. Deep specialist in ",
+      text: "Cloud & AI security architect with 8+ years at AWS designing, securing, and delivering enterprise-grade systems end to end — from secure development and IaC pipelines through production vulnerability remediation. Deep specialist in ",
     },
     { text: "identity & access management", strong: true },
     { text: " and " },
     { text: "applied cryptography", strong: true },
     {
-      text: " (KMS / CloudHSM / PKCS#11), with hands-on delivery for regulated financial customers. Increasingly focused on",
+      text: " (KMS / CloudHSM / PKCS#11), with hands-on delivery for regulated financial customers — multinational banks, brokerages, and large lending institutions. Increasingly focused on",
     },
     { text: " security for AI agent systems", strong: true },
     {
-      text: " — identity propagation, delegated authorization, and least-privilege for agentic / MCP architectures.",
+      text: " — identity propagation, delegated authorization, least-privilege for agentic / MCP architectures, and using AI to accelerate security remediation at scale.",
     },
   ] satisfies SummarySegment[],
 };
@@ -52,12 +52,14 @@ export const roles = [
   {
     proofId: "role-cloud-security-architect",
     title: "Cloud Security Architect",
-    meta: "Amazon Web Services · Mumbai · May 2024–Present",
+    meta: "AWS Professional Services · Mumbai · May 2024–Present",
     bullets: [
-      "Translate customer security requirements into AWS architectures across IAM, KMS, CloudTrail, GuardDuty",
-      "Strengthen customer IAM posture: least privilege, MFA, credential rotation, SSO via Azure AD/Okta, Just-In-Time access",
-      "Deliver end-to-end security solutions for enterprise customers handling sensitive financial data under Indian regulatory standards",
-      "Architect defenses across AWS security pillars: identity, logging/monitoring, incident response, data protection, infrastructure security",
+      "Lead cloud security assessments for pre-IPO firms, multinational banks, brokerages, and lenders — CTO/CISO steering sessions, readouts, prioritized remediation roadmaps",
+      "Design and pilot security automation pipelines that run agentic workflows on every build: AI code review, penetration testing, threat modeling (AWS Security Agent)",
+      "Secure GenAI and agentic workloads — model access control, secure RAG pipelines, identity and authorization patterns for agents (Amazon Bedrock, AgentCore)",
+      "Design identity for agentic AI: on-behalf-of token exchange, agent-to-agent trust, least-privilege for autonomous agents and MCP-based tools",
+      "Overhaul customer IAM posture — least privilege, MFA, SSO federation, Just-In-Time access — replacing standing admin permissions across AWS organizations",
+      "Build cloud-native SIEM/SOC on OpenSearch from raw log ingestion to near-real-time alerting; largest handles ~1TB/day for a stock brokerage",
     ],
   },
   {
@@ -66,7 +68,7 @@ export const roles = [
     meta: "Amazon Web Services · Bangalore · Dec 2017–May 2024",
     bullets: [
       "Resolved complex issues across AWS security services: IAM, Cognito, SSO, KMS, CloudHSM, GuardDuty, Inspector",
-      "Recognized SME for AWS IAM (federation, SAML, SSO) and for cryptography (KMS, CloudHSM)",
+      "Recognized SME for AWS IAM (federation, SAML, SSO) and for cryptography (KMS, CloudHSM, JCE, PKCS#11, OpenSSL engine)",
       "Designed internal AWS security training on IAM, CloudHSM, SSO, Secrets Manager",
       "Fixed SDK issues across Python/Java/C++/C#/JS/Ruby/Go/PHP for cross-language compatibility",
       "Onboarded 60+ applications into AWS SSO application catalog",
@@ -76,14 +78,14 @@ export const roles = [
 
 export const clientWork = [
   {
-    proofId: "client-siem-soc",
-    title: "Cloud-Native SIEM & SOC",
-    meta: "for a leading stock brokerage firm",
+    proofId: "client-iam-orchestrator",
+    title: "IAM Least-Privilege Orchestrator",
+    meta: "for a leading multinational bank",
     bullets: [
-      "Built cloud-native SIEM on AWS OpenSearch",
-      "Custom Java log processor handling 10M+ events/minute",
-      "Integrated public + privately subscribed threat intelligence",
-      "Near-real-time alerting at ~1TB/day log volume",
+      "Full-stack IAM governance + automated remediation across an entire AWS Organization",
+      "Automated access reviews via org-wide CloudTrail usage analysis",
+      "SAML auth via Identity Center + two-person-review (2PR) approval workflow",
+      "Remediated excessive permissions for thousands of users/roles across hundreds of accounts",
     ],
   },
   {
@@ -91,52 +93,67 @@ export const clientWork = [
     title: "KMS Key-Policy Least-Privilege Orchestrator",
     meta: "for a leading multinational bank",
     bullets: [
-      "Identify and remediate excessive cryptographic key privileges (PCI-DSS, SOC 2)",
+      "Detect excessive cryptographic key privileges, generate least-privilege fixes",
       "Analytics engine over high-volume CloudTrail logs",
-      "Automated GitHub integration with approval workflows",
-      "Track and audit policy changes across thousands of KMS keys",
+      "GitHub-integrated approval workflows to visualize, track, and audit changes",
+      "Thousands of KMS keys under continuous policy governance",
     ],
   },
   {
-    proofId: "client-iam-orchestrator",
-    title: "IAM Least-Privilege Orchestrator",
-    meta: "for a leading multinational bank",
+    proofId: "client-siem-soc",
+    title: "Cloud-Native SIEM & SOC",
+    meta: "for a leading stock brokerage firm",
     bullets: [
-      "Full-stack IAM governance platform (SOC 2, ISO 27001)",
-      "Automated access reviews via org-wide CloudTrail analysis",
-      "SAML auth + two-person-review (2PR) approval workflow",
-      "AWS Cloudscape UI with RBAC and automated quarterly audit reports",
+      "Built cloud-native SIEM on AWS OpenSearch",
+      "Custom Java log processor handling 10M+ events/minute",
+      "Integrated public + privately subscribed threat intelligence; Incident Manager paging",
+      "Near-real-time alerting at ~1TB/day log volume, no downtime",
+    ],
+  },
+  {
+    proofId: "client-sbom-inventory",
+    title: "Org-Wide SBOM Inventory & Visualization",
+    meta: "for a leading lending firm",
+    bullets: [
+      "Organization-wide SBOM inventory from Amazon Inspector exports to S3",
+      "Analytics layer on Glue Data Catalog + Athena + QuickSight dashboards",
+      "Search by component, version, runtime (EC2/Lambda/ECS), region, account, CVE",
+      "Audit-ready visibility for the CISO — e.g. every host on Python ≤3.9 in minutes",
     ],
   },
 ] satisfies ProofItem[];
 
 export const expertise = [
+  "AI & agentic systems security (agent identity, delegated authorization, A2A & MCP, Bedrock / AgentCore)",
   "Identity & Access Management (IAM, federation, SAML, OAuth, SSO, JIT)",
-  "Applied cryptography & key management (AWS KMS, CloudHSM, PKCS#11, JCE, OpenSSL engine)",
-  "AWS security architecture & governance (least privilege, logging/monitoring, incident response, data protection)",
+  "Applied cryptography & data protection (AWS KMS, CloudHSM, PKCS#11, JCE, OpenSSL engine)",
+  "AWS security architecture & governance (least privilege, logging/monitoring, incident response)",
+  "Application security & DevSecOps (SAST / DAST / SCA / SBOM, policy-as-code, AI-powered tooling)",
   "Cloud-native SIEM / SOC (OpenSearch)",
-  "Infrastructure as Code & security automation",
 ];
 
 export const expertiseEmerging =
-  "AI / agent security — on-behalf-of token exchange (RFC 8693), A2A & MCP authorization";
+  "AI-accelerated security remediation — agentic code review, pen-testing, and threat modeling in CI";
 
-export const techSkills = [
+export const techSkills: TechSkill[] = [
   { label: "Languages", value: "Python, Java, C/C++" },
-  { label: "IAM", value: "OAuth, SAML, AWS IAM, Identity Center" },
+  { label: "IAM", value: "OAuth, SAML, AWS IAM, Identity Center, federation, SSO, JIT access" },
   {
     label: "Cryptography",
     value: "AWS KMS, CloudHSM, PKCS#11, JCE, OpenSSL dynamic engine, Encryption SDK",
   },
-  { label: "Security Operations", value: "Cloud SIEM/SOC, threat hunting" },
-  { label: "Cloud", value: "AWS security architecture & automation, IaC" },
   {
     label: "AI / Agent Security",
     value:
-      "Agentic identity, delegated authorization, RFC 8693 token exchange, A2A, MCP, least-privilege for agentic tools",
-    emerging: true,
+      "Agentic identity & delegated authorization, A2A & MCP authorization, Amazon Bedrock & AgentCore, secure RAG, LLM guardrails",
   },
-] satisfies TechSkill[];
+  {
+    label: "AppSec / DevSecOps",
+    value: "AI-powered security tooling, SAST / DAST / SCA / SBOM, vulnerability management, policy-as-code",
+  },
+  { label: "Security Operations", value: "Cloud SIEM/SOC (OpenSearch), threat hunting" },
+  { label: "Cloud", value: "AWS security architecture & automation, IaC, CI/CD" },
+];
 
 export const education = {
   degree: "B.Tech, Computer Science",
@@ -146,7 +163,7 @@ export const education = {
 
 export const honors = [
   "ACM ICPC 2016 — Kolkata regional finals, Rank 58",
-  "Google Code Jam 2017–18",
+  "Google Code Jam 2017–18 — qualified; #2223 Round 1 (2017)",
   "Tata Codevita 2016 — AIR 98",
 ];
 
