@@ -19,3 +19,6 @@ npm-debug.log*
 
 # Internal build scaffolding & research — kept locally, never published
 /steering-and-local-research/
+applications/
+
+assets/*.docx
